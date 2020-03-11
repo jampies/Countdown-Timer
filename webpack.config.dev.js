@@ -14,7 +14,7 @@ module.exports = {
     host: 'localhost',
     disableHostCheck: true,
     historyApiFallback: true,
-    port: process.env.PORT,
+    port: process.env.PORT
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
