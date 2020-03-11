@@ -47,6 +47,7 @@
     "enzyme-adapter-react-16": "^1.15.2",
     "html-loader": "^0.5.5",
     "html-webpack-plugin": "^3.2.0",
+    "husky": "^4.2.3",
     "jsdom": "^16.2.1",
     "mocha": "^7.1.0",
     "semistandard": "^14.2.0",
@@ -64,5 +65,10 @@
       "beforeEach",
       "it"
     ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
   }
 }

@@ -3,7 +3,7 @@ const HtmlWebPackPlugin = require('html-webpack-plugin');
 const env = process.env.NODE_ENV === 'production' ? 'prod' : 'dev';
 const config = require('./webpack.config.' + env);
 
-let plugins = [
+const plugins = [
   new HtmlWebPackPlugin({
     template: './src/index.html'
   })
