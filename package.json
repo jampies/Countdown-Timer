@@ -1,0 +1,68 @@
+{
+  "name": "countdown-timer",
+  "version": "1.0.0",
+  "description": "A countdown timer with multiple speed settings. ",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "npm run ss && npm run unit-test",
+    "unit-test": "mocha --require ./testSetup.js \"src/**/*.spec.js\"",
+    "dev:start": "webpack-dev-server --open --mode development",
+    "start": "npm run dev:start",
+    "ss": "semistandard --verbose | snazzy",
+    "ss:fix": "semistandard --fix",
+    "prebuild": "rm -rf dist",
+    "build": "cross-env NODE_ENV=production webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jampies/Countdown-Timer.git"
+  },
+  "keywords": [
+    "Timer",
+    "Countdown",
+    "Alarm"
+  ],
+  "author": "Murray le Roux",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jampies/Countdown-Timer/issues"
+  },
+  "homepage": "https://github.com/jampies/Countdown-Timer#readme",
+  "dependencies": {
+    "react": "^16.13.0",
+    "react-dom": "^16.13.0",
+    "react-router-dom": "^5.1.2",
+    "styled-components": "^5.0.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.8.7",
+    "@babel/preset-env": "^7.8.7",
+    "@babel/preset-react": "^7.8.3",
+    "@babel/register": "^7.8.6",
+    "babel-loader": "^8.0.6",
+    "babel-polyfill": "^6.26.0",
+    "cross-env": "^7.0.2",
+    "css-loader": "^3.4.2",
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.2",
+    "html-loader": "^0.5.5",
+    "html-webpack-plugin": "^3.2.0",
+    "jsdom": "^16.2.1",
+    "mocha": "^7.1.0",
+    "semistandard": "^14.2.0",
+    "snazzy": "^8.0.0",
+    "style-loader": "^1.1.3",
+    "uglifyjs-webpack-plugin": "^2.2.0",
+    "url-loader": "^3.0.0",
+    "webpack": "^4.42.0",
+    "webpack-cli": "^3.3.11",
+    "webpack-dev-server": "^3.10.3"
+  },
+  "semistandard": {
+    "globals": [
+      "describe",
+      "beforeEach",
+      "it"
+    ]
+  }
+}
