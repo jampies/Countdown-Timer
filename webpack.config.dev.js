@@ -1,5 +1,5 @@
 const webpack = require('webpack');
-process.env.PORT = 8080;
+process.env.PORT = 8081;
 
 module.exports = {
   devtool: 'cheap-module-source-map',

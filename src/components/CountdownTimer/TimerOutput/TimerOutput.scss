@@ -1,0 +1,18 @@
+.textOutput {
+
+}
+
+.remainingTime {
+
+}
+
+.flashing {
+  animation-name: flashing-opacity;
+  animation-duration: 0.5s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes flashing-opacity {
+  from {opacity: 1;}
+  to {opacity: 0;}
+}

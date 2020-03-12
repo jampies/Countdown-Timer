@@ -1,12 +1,15 @@
 const path = require('path');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
-const env = process.env.NODE_ENV === 'production' ? 'prod' : 'dev';
+const isDevelopment = process.env.NODE_ENV !== 'production';
+const env = !isDevelopment ? 'prod' : 'dev';
 const config = require('./webpack.config.' + env);
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 const plugins = [
   new HtmlWebPackPlugin({
     template: './src/index.html'
-  })
+  }),
+  new MiniCssExtractPlugin()
 ].concat(config.plugins);
 
 module.exports = Object.assign({
@@ -22,19 +25,34 @@ module.exports = Object.assign({
   module: {
     rules: [
       {
-        test: /\.scss$/,
-        use: [
+        test: /\.module\.s(a|c)ss$/,
+        loader: [
+          MiniCssExtractPlugin.loader,
           {
             loader: 'css-loader',
             options: {
-              sourceMap: true,
-              importLoaders: 1
+              modules: true,
+              sourceMap: isDevelopment
             }
           },
           {
-            loader: 'sass-loader?outputStyle=expanded',
+            loader: 'sass-loader',
             options: {
-              sourceMap: true
+              sourceMap: isDevelopment
+            }
+          }
+        ]
+      },
+      {
+        test: /\.s(a|c)ss$/,
+        exclude: /\.module.(s(a|c)ss)$/,
+        loader: [
+          isDevelopment ? 'style-loader' : MiniCssExtractPlugin.loader,
+          'css-loader',
+          {
+            loader: 'sass-loader',
+            options: {
+              sourceMap: isDevelopment
             }
           }
         ]
@@ -81,5 +99,8 @@ module.exports = Object.assign({
         loader: 'url-loader?limit=8192'
       }
     ]
+  },
+  resolve: {
+    extensions: ['.js', '.jsx', '.scss']
   }
 }, config, { plugins });

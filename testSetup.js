@@ -1,5 +1,8 @@
 require('@babel/register')();
 
+var mockCssModules = require('mock-css-modules');
+mockCssModules.register(['.scss']);
+
 const Enzyme = require('enzyme');
 const Adapter = require('enzyme-adapter-react-16');
 

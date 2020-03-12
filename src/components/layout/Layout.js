@@ -1,11 +1,11 @@
 import React from 'react';
-import { StyledLayoutContainer } from './Styles';
+import styles from './Layout.module.scss';
 
 const Layout = ({ children }) => {
   return (
-    <StyledLayoutContainer>
+    <div className={styles.layout}>
       {children}
-    </StyledLayoutContainer>
+    </div>
   );
 };
 
