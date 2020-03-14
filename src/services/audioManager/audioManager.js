@@ -1,10 +1,7 @@
-import UIFx from 'uifx';
-import AlarmAudio from '../../resources/sounds/381382__coltonmanz__alarm.wav';
-
-const beep = new UIFx({ asset: AlarmAudio });
+var alarm = new Audio('../../resources/sounds/381382__coltonmanz__alarm.wav');
 
 export default {
-  playAlarm: (volume = 0.5) => {
-    beep.play(volume);
+  playAlarm: () => {
+    alarm.play();
   }
 };

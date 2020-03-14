@@ -11,7 +11,7 @@ describe('CountdownTimer', () => {
     component = shallow(<CountdownTimer />);
   });
 
-  it.only('should render correctly', () => {
+  it('should render correctly', () => {
     assert(component.find(TimerOutput).exists());
   });
 });

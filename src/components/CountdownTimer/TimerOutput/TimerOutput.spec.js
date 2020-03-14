@@ -11,8 +11,8 @@ describe('TimerOutput', () => {
     component = mountComponent({ });
   });
 
-  function mountComponent ({ totalTime = 300, currentTime = 200 }) {
-    return shallow(<TimerOutput totalTime={totalTime} currentTime={currentTime} />);
+  function mountComponent ({ totalTime = 300, currentTime = 200, isActive = true }) {
+    return shallow(<TimerOutput totalTime={totalTime} currentTime={currentTime} isActive={isActive} />);
   }
 
   it('should format the timer correctly', () => {
@@ -36,11 +36,11 @@ describe('TimerOutput', () => {
 
   it('should display in red when time is less than 20 seconds', () => {
     component.setProps({ currentTime: 19 });
-    assert(component.find(`.${styles.textOutput}`).hasClass(styles.red), 'Text not shown in red when 20 seconds remaining');
+    assert(component.find(`.${styles.textOutputContainer}`).hasClass(styles.red), 'Text not shown in red when 20 seconds remaining');
   });
 
   it('should have flashing class when less than 10 seconds', () => {
     component.setProps({ currentTime: 9 });
-    assert(component.find(`.${styles.textOutput}`).hasClass(styles.flashing), 'Text not flashing when 10 seconds remaining');
+    assert(component.find(`.${styles.textOutputContainer}`).hasClass(styles.flashing), 'Text not flashing when 10 seconds remaining');
   });
 });
