@@ -2,6 +2,7 @@ import assert from 'assert';
 import CountdownTimer from './CountdownTimer';
 import React from 'react';
 import { shallow } from 'enzyme';
+import TimerOutput from './TimerOutput/TimerOutput';
 
 describe('CountdownTimer', () => {
   let component;
@@ -10,7 +11,7 @@ describe('CountdownTimer', () => {
     component = shallow(<CountdownTimer />);
   });
 
-  it('should render test text', () => {
-    assert(component.text().includes('Countdown Timer'));
+  it.only('should render correctly', () => {
+    assert(component.find(TimerOutput).exists());
   });
 });

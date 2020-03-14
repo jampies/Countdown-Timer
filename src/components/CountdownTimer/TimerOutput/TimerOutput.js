@@ -1,11 +1,11 @@
 import React from 'react';
-import styles from './TimerOutput.scss';
-import { formatSeconds } from '../../../services/formatter';
+import styles from './TimerOutput.module.scss';
+import { formatSeconds } from '../../../services/formatter/formatter';
 import classnames from 'classnames';
 
-const TimerOutput = ({ startTime, currentTime }) => {
+const TimerOutput = ({ totalTime, currentTime, isActive }) => {
   let text = '';
-  const halfway = currentTime / startTime < 0.5;
+  const halfway = currentTime / totalTime < 0.5;
   const finished = currentTime <= 0;
 
   if (halfway) {
@@ -17,14 +17,14 @@ const TimerOutput = ({ startTime, currentTime }) => {
   }
 
   const textClasses = classnames({
-    [styles.textOutput]: true,
-    [styles.red]: currentTime <= 20,
-    [styles.flashing]: currentTime <= 10
+    [styles.textOutputContainer]: true,
+    [styles.red]: isActive && currentTime <= 20,
+    [styles.flashing]: isActive && currentTime <= 10
   });
 
   return (
-    <div>
-      <h4 className={textClasses}>{text}</h4>
+    <div className={textClasses}>
+      <h4 className={styles.textOutput}>{isActive && text}</h4>
       <h1 className={styles.remainingTime}>{formatSeconds(currentTime)}</h1>
     </div>
   );

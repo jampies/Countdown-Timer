@@ -97,6 +97,14 @@ module.exports = Object.assign({
       {
         test: /\.(png|jpg|jpeg|gif)$/,
         loader: 'url-loader?limit=8192'
+      },
+      {
+        test: /\.(wav|mp3)$/i,
+        use: [
+          {
+            loader: 'file-loader'
+          }
+        ]
       }
     ]
   },

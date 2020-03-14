@@ -2,7 +2,7 @@ import assert from 'assert';
 import TimerOutput from './TimerOutput';
 import React from 'react';
 import { shallow } from 'enzyme';
-import styles from './TimerOutput.scss';
+import styles from './TimerOutput.module.scss';
 
 describe('TimerOutput', () => {
   let component;
@@ -11,8 +11,8 @@ describe('TimerOutput', () => {
     component = mountComponent({ });
   });
 
-  function mountComponent ({ startTime = 300, currentTime = 200 }) {
-    return shallow(<TimerOutput startTime={startTime} currentTime={currentTime} />);
+  function mountComponent ({ totalTime = 300, currentTime = 200 }) {
+    return shallow(<TimerOutput totalTime={totalTime} currentTime={currentTime} />);
   }
 
   it('should format the timer correctly', () => {
