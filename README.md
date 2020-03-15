@@ -23,5 +23,13 @@ Deployed here: https://countdown-timer.murrayleroux.now.sh
 
 * Tests are located in the same folder as the component tested and has `.spec.js` extensions
 
+## Images
+
+![](images/Screenshot.PNG)
+
+![](images/Screenshot_Halfway.PNG)
+
+![](images/Screenshot_Red.PNG)
+
 ## License
 MIT
