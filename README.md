@@ -4,6 +4,8 @@ A countdown timer application built with React
 
 Travis CI: https://travis-ci.org/github/jampies/Countdown-Timer
 
+Deployed here: https://countdown-timer.murrayleroux.now.sh
+
 ## Dependencies
 
 * Node v12+ and NPM
